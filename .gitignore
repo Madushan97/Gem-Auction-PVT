@@ -1,0 +1,110 @@
+# General Maven and Gradle directories
+target/
+!.mvn/wrapper/maven-wrapper.jar
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# STS (Spring Tool Suite)
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans/
+.sts4-cache/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Visual Studio Code
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*.swp
+.swo
+.swn
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+*.old
+*.orig
+
+# Compiled class files
+*.class
+
+# JAR files
+*.jar
+*.war
+*.ear
+
+# Package files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+*.tgz
+
+# IDE-specific files
+*.idea/
+*.vscode/
+*.sublime-*
+
+# Runtime files
+*.pid
+
+# Generated files
+*.generated
+*.gen
+
+# IntelliJ Plugin
+.idea_modules/
+
+# Lombok cache
+.lombok/
+
+# Local Environment Files
+.env
+.env.local
+.env.*.local
+
+# Coverage Reports
+coverage/
+.nyc_output/
+
+# Dependency directories
+/node_modules/
+/.pnp/
+.pnp.js
+
+# Build artifacts
+/dist/
+build/
+# Maven's target folder already included above
