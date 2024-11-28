@@ -1,0 +1,13 @@
+server:
+  port: 9090
+#  servlet:
+#    context-path: /gem-auction
+spring:
+  datasource:
+    username: ${DB-USERNAME}
+    password: ${DB-PASSWORD}
+    url: jdbc:mysql://${DB-HOST}:${DB-PORT}/${DB-NAME}?serverTimezone=UTC&cachePrepStmts=true&useServerPrepStmts=true&rewriteBatchedStatements=true
+  jpa:
+    hibernate:
+      ddl-auto: ${DDL-AUTO}
+
