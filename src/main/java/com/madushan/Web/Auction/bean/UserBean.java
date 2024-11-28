@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class UserBean {
 
-    private String userName;
+    private String username;
     private String email;
+    private String password;
     private String address;
 }

@@ -31,6 +31,9 @@ public class User {
     @Column(name = "address", length = 200, nullable = false)
     private String address;
 
+    @Column(name = "password", nullable = false)
+    private String password;
+
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 

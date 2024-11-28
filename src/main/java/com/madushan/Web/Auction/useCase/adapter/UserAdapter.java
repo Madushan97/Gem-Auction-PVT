@@ -8,4 +8,6 @@ public interface UserAdapter {
     GetUserBean createUser(UserBean user);
 
     boolean userExist(UserBean userBean);
+
+    String verifyUser(UserBean userBean);
 }
