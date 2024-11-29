@@ -34,6 +34,7 @@ public class WebSecurityConfig {
                         request -> request
                                 .requestMatchers("/user/register").permitAll()
                                 .requestMatchers("/user/login").permitAll()
+                                .requestMatchers("/auction/create").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())

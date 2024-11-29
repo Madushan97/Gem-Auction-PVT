@@ -19,6 +19,11 @@ public class UserController {
 
     private final UserService userService;
 
+    @PostMapping("/login")
+    public String login(@RequestBody UserBean userBean) {
+        return userService.verify(userBean);
+    }
+
     @PostMapping("/register")
     public ResponseEntity<StandardResponse> createUser(@RequestBody UserBean userBean) {
         if (!userService.userExist(userBean)) {
@@ -43,8 +48,5 @@ public class UserController {
         }
     }
 
-    @PostMapping("/login")
-    public String login(@RequestBody UserBean userBean) {
-        return userService.verify(userBean);
-    }
+
 }

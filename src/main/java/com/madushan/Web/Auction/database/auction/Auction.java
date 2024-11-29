@@ -33,6 +33,9 @@ public class Auction {
     @Column(name = "start_date", nullable = false, updatable = false)
     private LocalDateTime startDate;
 
+    @Column(name = "end_date", nullable = false, updatable = false)
+    private LocalDateTime endDate;
+
     @Column(name = "start_price", nullable = false, updatable = false)
     private BigDecimal startPrice;
 
