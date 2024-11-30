@@ -45,6 +45,12 @@ public class Auction {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
+    @Column(name = "is_expired")
+    private boolean isExpired;
+
+    @Column(name = "user_id")
+    private int userId;
+
     @OneToMany(mappedBy = "auction", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Gem> gems;
 
