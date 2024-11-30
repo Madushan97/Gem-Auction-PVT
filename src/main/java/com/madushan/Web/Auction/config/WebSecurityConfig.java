@@ -35,6 +35,7 @@ public class WebSecurityConfig {
                                 .requestMatchers("/user/register").permitAll()
                                 .requestMatchers("/user/login").permitAll()
                                 .requestMatchers("/auction/create").permitAll()
+                                .requestMatchers("/report/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())

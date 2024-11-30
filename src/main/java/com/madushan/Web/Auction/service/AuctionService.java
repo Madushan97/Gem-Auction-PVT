@@ -1,7 +1,7 @@
 package com.madushan.Web.Auction.service;
 
 import com.madushan.Web.Auction.bean.AuctionBean;
-import com.madushan.Web.Auction.useCase.CreateAuctionUseCase;
+import com.madushan.Web.Auction.useCase.PersistAuctionUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuctionService {
 
-    private final CreateAuctionUseCase createAuctionUseCase;
+    private final PersistAuctionUseCase persistAuctionUseCase;
 
     public String createAuction(AuctionBean auctionBean) {
-        return createAuctionUseCase.createAuction(auctionBean);
+        return persistAuctionUseCase.createAuction(auctionBean);
     }
 }

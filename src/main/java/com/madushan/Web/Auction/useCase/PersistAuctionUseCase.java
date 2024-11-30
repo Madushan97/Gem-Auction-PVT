@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class CreateAuctionUseCase {
+public class PersistAuctionUseCase {
 
     private final AuctionAdapter auctionAdapter;
 
