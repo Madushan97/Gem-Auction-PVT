@@ -9,5 +9,5 @@ spring:
     url: jdbc:mysql://localhost:3306/gem_auction?serverTimezone=UTC&cachePrepStmts=true&useServerPrepStmts=true&rewriteBatchedStatements=true
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
 
