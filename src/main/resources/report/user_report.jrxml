@@ -21,7 +21,7 @@
     <field name="userName" class="java.lang.String"/>
     <field name="email" class="java.lang.String"/>
     <field name="address" class="java.lang.String"/>
-    <field name="createdAt" class="java.sql.Timestamp"/>
+    <field name="createdAt" class="java.time.LocalDateTime"/>
     <title>
         <band height="62" splitType="Stretch">
             <line>

@@ -4,5 +4,5 @@ import com.madushan.Web.Auction.bean.AuctionBean;
 
 public interface AuctionAdapter {
 
-    String createAuction(AuctionBean auctionBean);
+    String createAuction(AuctionBean auctionBean, String userName);
 }

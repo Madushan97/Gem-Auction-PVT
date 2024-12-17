@@ -21,7 +21,7 @@ public class Auction {
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(name = "auction_name", length = 200, nullable = false)
@@ -44,6 +44,12 @@ public class Auction {
 
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
+
+    @Column(name = "is_expired")
+    private boolean isExpired;
+
+    @Column(name = "user_name")
+    private String userName;
 
     @OneToMany(mappedBy = "auction", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Gem> gems;
