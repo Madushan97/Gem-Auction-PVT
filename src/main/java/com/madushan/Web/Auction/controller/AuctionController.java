@@ -3,6 +3,7 @@ package com.madushan.Web.Auction.controller;
 import com.madushan.Web.Auction.bean.AuctionBean;
 import com.madushan.Web.Auction.database.user.User;
 import com.madushan.Web.Auction.service.AuctionService;
+import com.madushan.Web.Auction.util.CustomUserDetails;
 import com.madushan.Web.Auction.util.StandardResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -24,15 +25,8 @@ public class AuctionController {
 
     @PostMapping("/create")
     public ResponseEntity<StandardResponse> createAuction(@RequestBody AuctionBean auctionBean, HttpServletRequest request) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String userName = authentication.getName();
-        int userId = 0;
-       Object xc = authentication.getPrincipal();
-        if (authentication.getPrincipal() instanceof User) {
-            User user = (User) authentication.getPrincipal();
-            userId = user.getId();
-        }
-        String createdAuction = auctionService.createAuction(auctionBean, userId);
+        CustomUserDetails user = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String createdAuction = auctionService.createAuction(auctionBean, user.getUsername());
         return new ResponseEntity<>(
                 new StandardResponse(
                         HttpStatus.CREATED.value(),

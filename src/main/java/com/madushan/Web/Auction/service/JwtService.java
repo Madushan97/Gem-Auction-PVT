@@ -28,7 +28,7 @@ public class JwtService {
                 .subject(userBean.getUsername())
                 .issuer("MNS")
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + 10*60*1000))
+                .expiration(new Date(System.currentTimeMillis() + 60*60*1000))  // for 1 hour expiration
                 .and()
                 .signWith(generatedKey())
                 .compact();
@@ -44,7 +44,7 @@ public class JwtService {
     }
 
     public String extractUsername(String jwt) {
-        return null;
+        return extractClaims(jwt, Claims::getSubject);
     }
 
     public boolean isTokenValid(String token, UserDetails userDetails) {

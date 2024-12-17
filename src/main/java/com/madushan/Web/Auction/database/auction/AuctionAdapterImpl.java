@@ -13,14 +13,14 @@ public class AuctionAdapterImpl implements AuctionAdapter {
     private final AuctionRepository auctionRepository;
 
     @Override
-    public String createAuction(AuctionBean auctionBean, int userId) {
+    public String createAuction(AuctionBean auctionBean, String userName) {
         Auction auction = new Auction();
         auction.setAuctionName(auctionBean.getAuctionName());
         auction.setDescription(auctionBean.getDescription());
         auction.setStartDate(auctionBean.getStartDate());
         auction.setEndDate(auctionBean.getEndDate());
         auction.setStartPrice(auctionBean.getStartPrice());
-        auction.setUserId(userId);
+        auction.setUserName(userName);
         auction.setExpired(false);
         Auction createdAuction = auctionRepository.save(auction);
         return "Auction created with id: " + createdAuction.getId();

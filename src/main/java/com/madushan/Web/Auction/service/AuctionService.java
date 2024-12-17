@@ -11,7 +11,7 @@ public class AuctionService {
 
     private final PersistAuctionUseCase persistAuctionUseCase;
 
-    public String createAuction(AuctionBean auctionBean, int userId) {
-        return persistAuctionUseCase.createAuction(auctionBean, userId);
+    public String createAuction(AuctionBean auctionBean, String username) {
+        return persistAuctionUseCase.createAuction(auctionBean, username);
     }
 }
