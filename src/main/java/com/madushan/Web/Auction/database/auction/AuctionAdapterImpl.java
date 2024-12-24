@@ -6,6 +6,8 @@ import com.madushan.Web.Auction.useCase.adapter.AuctionAdapter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @RequiredArgsConstructor
 public class AuctionAdapterImpl implements AuctionAdapter {
@@ -24,5 +26,11 @@ public class AuctionAdapterImpl implements AuctionAdapter {
         auction.setExpired(false);
         Auction createdAuction = auctionRepository.save(auction);
         return "Auction created with id: " + createdAuction.getId();
+    }
+
+    @Override
+    public List<Auction> getAllAuctions(String username) {
+        List<Auction> auctionList = auctionRepository.findAllByUserName(username);
+        return  auctionList;
     }
 }
