@@ -1,16 +1,14 @@
 package com.madushan.Web.Auction.controller;
 
 import com.madushan.Web.Auction.bean.GetUserBean;
+import com.madushan.Web.Auction.bean.ResponseToken;
 import com.madushan.Web.Auction.bean.UserBean;
 import com.madushan.Web.Auction.service.UserService;
 import com.madushan.Web.Auction.util.StandardResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/user")
 @RestController
@@ -20,8 +18,11 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/login")
-    public String login(@RequestBody UserBean userBean) {
-        return userService.verify(userBean);
+    public ResponseToken login(@RequestBody UserBean userBean) {
+        String token = userService.verify(userBean);
+        ResponseToken responseToken = new ResponseToken();
+        responseToken.setToken(token);
+        return responseToken;
     }
 
     @PostMapping("/register")

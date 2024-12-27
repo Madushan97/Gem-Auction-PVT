@@ -4,6 +4,8 @@ import com.madushan.Web.Auction.bean.AuctionBean;
 import com.madushan.Web.Auction.database.user.repository.AuctionRepository;
 import com.madushan.Web.Auction.useCase.adapter.AuctionAdapter;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AuctionAdapterImpl implements AuctionAdapter {
 
+    private final Logger LOGGER = LoggerFactory.getLogger(AuctionAdapterImpl.class);
     private final AuctionRepository auctionRepository;
 
     @Override
@@ -31,6 +34,7 @@ public class AuctionAdapterImpl implements AuctionAdapter {
     @Override
     public List<Auction> getAllAuctions(String username) {
         List<Auction> auctionList = auctionRepository.findAllByUserName(username);
+        LOGGER.info("Get all auctions for user: " + username + "successfully");
         return  auctionList;
     }
 }
