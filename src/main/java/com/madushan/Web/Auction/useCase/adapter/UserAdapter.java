@@ -16,4 +16,6 @@ public interface UserAdapter {
     String verifyUser(UserBean userBean);
 
     List<User> filterUserByDateRange(DateRangeBean dateRangeBean);
+
+    User getUserByUsername(String username);
 }

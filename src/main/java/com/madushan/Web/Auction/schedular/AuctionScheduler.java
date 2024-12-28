@@ -1,6 +1,6 @@
 package com.madushan.Web.Auction.schedular;
 
-import com.madushan.Web.Auction.database.user.repository.AuctionRepository;
+import com.madushan.Web.Auction.database.auction.repository.AuctionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

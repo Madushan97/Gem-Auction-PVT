@@ -2,6 +2,8 @@ package com.madushan.Web.Auction.service;
 
 import com.madushan.Web.Auction.bean.GetUserBean;
 import com.madushan.Web.Auction.bean.UserBean;
+import com.madushan.Web.Auction.database.user.User;
+import com.madushan.Web.Auction.useCase.GetUserByGivenUsernameUseCase;
 import com.madushan.Web.Auction.useCase.PersistUserUseCase;
 import com.madushan.Web.Auction.useCase.CheckUserExistUseCase;
 import com.madushan.Web.Auction.useCase.UserVerifyUseCase;
@@ -15,6 +17,7 @@ public class UserService {
     private final PersistUserUseCase persistUserUseCase;
     private final CheckUserExistUseCase checkUserExistUseCase;
     private final UserVerifyUseCase userVerifyUseCase;
+    private final GetUserByGivenUsernameUseCase getUserByGivenUsernameUseCase;
 
     public GetUserBean createUser(UserBean userBean) {
         return persistUserUseCase.createUser(userBean);
@@ -26,5 +29,9 @@ public class UserService {
 
     public String verify(UserBean userBean) {
         return userVerifyUseCase.verifyUser(userBean);
+    }
+
+    public User getUserByUsername(String username) {
+        return getUserByGivenUsernameUseCase.getUserByUsername(username);
     }
 }

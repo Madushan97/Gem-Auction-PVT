@@ -3,6 +3,7 @@ package com.madushan.Web.Auction.database.auction;
 import com.madushan.Web.Auction.database.bid.Bid;
 import com.madushan.Web.Auction.database.gem.Gem;
 import com.madushan.Web.Auction.database.payment.Payment;
+import com.madushan.Web.Auction.database.review.Review;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,7 +22,7 @@ public class Auction {
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "auction_name", length = 200, nullable = false)
@@ -59,6 +60,9 @@ public class Auction {
 
     @OneToMany(mappedBy = "auction", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Payment> payments;
+
+    @OneToMany(mappedBy = "auction", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Review> reviews;
 
     @PrePersist
     protected void onCreate() {

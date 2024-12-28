@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class ResponseToken {
-    private String token;
+public class ReviewBean {
+
+    private int auctionId;
+    private String comment;
+    private int rating;
 }

@@ -1,7 +1,7 @@
 package com.madushan.Web.Auction.controller;
 
 import com.madushan.Web.Auction.bean.GetUserBean;
-import com.madushan.Web.Auction.bean.ResponseToken;
+import com.madushan.Web.Auction.bean.ResponseTokenBean;
 import com.madushan.Web.Auction.bean.UserBean;
 import com.madushan.Web.Auction.service.UserService;
 import com.madushan.Web.Auction.util.StandardResponse;
@@ -18,11 +18,11 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/login")
-    public ResponseToken login(@RequestBody UserBean userBean) {
+    public ResponseTokenBean login(@RequestBody UserBean userBean) {
         String token = userService.verify(userBean);
-        ResponseToken responseToken = new ResponseToken();
-        responseToken.setToken(token);
-        return responseToken;
+        ResponseTokenBean responseTokenBean = new ResponseTokenBean();
+        responseTokenBean.setToken(token);
+        return responseTokenBean;
     }
 
     @PostMapping("/register")

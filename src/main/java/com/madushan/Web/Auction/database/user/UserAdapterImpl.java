@@ -93,4 +93,9 @@ public class UserAdapterImpl implements UserAdapter {
         List<User> filterResults = typedQuery.getResultList();
         return filterResults;
     }
+
+    @Override
+    public User getUserByUsername(String username) {
+        return userRepository.findByUserName(username);
+    }
 }

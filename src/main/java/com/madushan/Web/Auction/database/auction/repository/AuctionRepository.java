@@ -1,4 +1,4 @@
-package com.madushan.Web.Auction.database.user.repository;
+package com.madushan.Web.Auction.database.auction.repository;
 
 import com.madushan.Web.Auction.database.auction.Auction;
 import org.springframework.data.jpa.repository.JpaRepository;

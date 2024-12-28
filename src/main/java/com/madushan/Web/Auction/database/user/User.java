@@ -2,6 +2,7 @@ package com.madushan.Web.Auction.database.user;
 
 import com.madushan.Web.Auction.database.auctionHistory.AuctionHistory;
 import com.madushan.Web.Auction.database.payment.Payment;
+import com.madushan.Web.Auction.database.review.Review;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -45,6 +46,9 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<AuctionHistory> auctionHistory;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Review> review;
 
     @PrePersist
     protected void onCreate() {

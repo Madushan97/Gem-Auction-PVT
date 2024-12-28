@@ -1,7 +1,7 @@
 package com.madushan.Web.Auction.database.auction;
 
 import com.madushan.Web.Auction.bean.AuctionBean;
-import com.madushan.Web.Auction.database.user.repository.AuctionRepository;
+import com.madushan.Web.Auction.database.auction.repository.AuctionRepository;
 import com.madushan.Web.Auction.useCase.adapter.AuctionAdapter;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -34,7 +34,12 @@ public class AuctionAdapterImpl implements AuctionAdapter {
     @Override
     public List<Auction> getAllAuctions(String username) {
         List<Auction> auctionList = auctionRepository.findAllByUserName(username);
-        LOGGER.info("Get all auctions for user: " + username + "successfully");
+        LOGGER.info("Get all auctions for user: " + username + " successfully");
         return  auctionList;
+    }
+
+    @Override
+    public Auction getAuctionById(int auctionId) {
+        return auctionRepository.findById(auctionId).get();
     }
 }

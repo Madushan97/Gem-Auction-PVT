@@ -10,4 +10,6 @@ public interface AuctionAdapter {
     String createAuction(AuctionBean auctionBean, String userName);
 
     List<Auction> getAllAuctions(String username);
+
+    Auction getAuctionById(int auctionId);
 }
