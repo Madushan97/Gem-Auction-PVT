@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class ReviewBean {
 
+
     private int auctionId;
     private String comment;
     private int rating;

@@ -1,19 +1,18 @@
 package com.madushan.Web.Auction.service;
 
 import com.madushan.Web.Auction.bean.ReviewBean;
-import com.madushan.Web.Auction.useCase.PersistReviewUseCase;
+import com.madushan.Web.Auction.database.review.Review;
+import com.madushan.Web.Auction.useCase.ReviewUseCase;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class ReviewService {
 
-    private final PersistReviewUseCase persistReviewUseCase;
-
+    private final ReviewUseCase reviewUseCase;
 
     public String persistReview(ReviewBean reviewBean, String username) {
-        return persistReviewUseCase.persistReview(reviewBean, username);
+        return reviewUseCase.persistReview(reviewBean, username);
     }
 }
