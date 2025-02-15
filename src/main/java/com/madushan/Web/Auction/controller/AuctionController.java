@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/auction")
+@RequestMapping("/auctions")
 @RequiredArgsConstructor
 public class AuctionController {
 
     private final AuctionService auctionService;
 
-    @PostMapping("/create")
-    public ResponseEntity<StandardResponse> createAuction(@RequestBody AuctionBean auctionBean, HttpServletRequest request) {
+    @PostMapping("/")
+    public ResponseEntity<StandardResponse> createAuction(@RequestBody AuctionBean auctionBean) {
         CustomUserDetails user = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String createdAuction = auctionService.createAuction(auctionBean, user.getUsername());
         return new ResponseEntity<>(
@@ -37,7 +37,7 @@ public class AuctionController {
         );
     }
 
-    @GetMapping("/getAll")
+    @GetMapping("/")
     public ResponseEntity<StandardResponse> getAllAuction() {
         CustomUserDetails user = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Auction> getAllAuction = auctionService.getAllAuction(user.getUsername());
