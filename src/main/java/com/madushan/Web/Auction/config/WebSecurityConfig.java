@@ -38,8 +38,8 @@ public class WebSecurityConfig {
                 .cors(Customizer.withDefaults()) // Enable CORS
                 .authorizeHttpRequests(
                         request -> request
-                                .requestMatchers("/user/register").permitAll()
-                                .requestMatchers("/user/login").permitAll()
+                                .requestMatchers("/users/register").permitAll()
+                                .requestMatchers("/users/login").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())

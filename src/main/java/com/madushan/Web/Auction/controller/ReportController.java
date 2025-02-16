@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/report")
+@RequestMapping("/reports")
 @RestController
 @RequiredArgsConstructor
 public class ReportController {

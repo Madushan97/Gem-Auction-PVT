@@ -23,7 +23,7 @@ public class AuctionController {
 
     private final AuctionService auctionService;
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<StandardResponse> createAuction(@RequestBody AuctionBean auctionBean) {
         CustomUserDetails user = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String createdAuction = auctionService.createAuction(auctionBean, user.getUsername());
@@ -37,7 +37,7 @@ public class AuctionController {
         );
     }
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<StandardResponse> getAllAuction() {
         CustomUserDetails user = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Auction> getAllAuction = auctionService.getAllAuction(user.getUsername());

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/review")
+@RequestMapping("/reviews")
 @RestController
 @RequiredArgsConstructor
 public class ReviewController {
@@ -21,7 +21,7 @@ public class ReviewController {
     private final ReviewService reviewService;
     private final AuthenticationService authenticationService;
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<StandardResponse> persistReview(@RequestBody ReviewBean reviewBean) {
         String username = authenticationService.getAuthenticatedUsername();
         String createdAuction = reviewService.persistReview(reviewBean, username);
