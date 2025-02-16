@@ -2,6 +2,7 @@ package com.madushan.Web.Auction.database.auction;
 
 import com.madushan.Web.Auction.bean.AuctionBean;
 import com.madushan.Web.Auction.database.auction.repository.AuctionRepository;
+import com.madushan.Web.Auction.exception.ResourceNotFoundException;
 import com.madushan.Web.Auction.useCase.adapter.AuctionAdapter;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -40,6 +41,7 @@ public class AuctionAdapterImpl implements AuctionAdapter {
 
     @Override
     public Auction getAuctionById(int auctionId) {
-        return auctionRepository.findById(auctionId).get();
+        return auctionRepository.findById(auctionId)
+                .orElseThrow(() -> new ResourceNotFoundException("Auction not found with id: " + auctionId));
     }
 }

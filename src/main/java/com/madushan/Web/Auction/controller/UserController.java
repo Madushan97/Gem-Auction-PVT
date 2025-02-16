@@ -27,27 +27,14 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<StandardResponse> createUser(@RequestBody UserBean userBean) {
-        if (!userService.userExist(userBean)) {
-            GetUserBean createdUser = userService.createUser(userBean);
-            return new ResponseEntity<>(
-                    new StandardResponse(
-                            HttpStatus.CREATED.value(),
-                            "User created",
-                            createdUser
-                    ),
-                    HttpStatus.CREATED
-            );
-        } else {
-            return new ResponseEntity<>(
-                    new StandardResponse(
-                            HttpStatus.BAD_REQUEST.value(),
-                            "User already registered",
-                            userBean
-                    ),
-                    HttpStatus.BAD_REQUEST
-            );
-        }
+        GetUserBean createdUser = userService.createUser(userBean);
+        return new ResponseEntity<>(
+                new StandardResponse(
+                        HttpStatus.CREATED.value(),
+                        "User created",
+                        createdUser
+                ),
+                HttpStatus.CREATED
+        );
     }
-
-
 }

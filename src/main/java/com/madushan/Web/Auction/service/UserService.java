@@ -3,6 +3,7 @@ package com.madushan.Web.Auction.service;
 import com.madushan.Web.Auction.bean.GetUserBean;
 import com.madushan.Web.Auction.bean.UserBean;
 import com.madushan.Web.Auction.database.user.User;
+import com.madushan.Web.Auction.exception.UserAlreadyExistsException;
 import com.madushan.Web.Auction.useCase.GetUserByGivenUsernameUseCase;
 import com.madushan.Web.Auction.useCase.PersistUserUseCase;
 import com.madushan.Web.Auction.useCase.CheckUserExistUseCase;
@@ -20,11 +21,10 @@ public class UserService {
     private final GetUserByGivenUsernameUseCase getUserByGivenUsernameUseCase;
 
     public GetUserBean createUser(UserBean userBean) {
+        if (checkUserExistUseCase.userExist(userBean)) {
+            throw new UserAlreadyExistsException("A user with this username already exists");
+        }
         return persistUserUseCase.createUser(userBean);
-    }
-
-    public boolean userExist(UserBean userBean) {
-        return checkUserExistUseCase.userExist(userBean);
     }
 
     public String verify(UserBean userBean) {
